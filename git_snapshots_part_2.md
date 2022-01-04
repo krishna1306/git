@@ -55,7 +55,7 @@ git ls-files
 
 If the contents of our working directory is the same as what we have in staging area (which inturn is the same as the last committed data -- **Its all good**)
 
-### Check the `diff` between Staging area and Previous Commits
+### Check the `diff` between Staging area and Previous Commit
 
 ```bash
 git diff --staged
@@ -221,6 +221,14 @@ When you want to see the exact data present at the time of a specific commit you
 
 #### To see the `diff` between current commit and an old commit
 
+`git show` shows
+
+- Author
+- Email
+- Time and Date of commit
+- Commit message
+- `diff` of each file in the commit
+
 ```bash
 git show <commit-id>
 
@@ -229,6 +237,12 @@ git show HEAD
 
 # You can also fetch commits relative to "HEAD"
 git show HEAD~1
+
+# See only the files modified in a commit
+git show HEAD~1 --name-only
+
+# See the files modified in a commit - along with the type of modification (Add/Modify/Delete)
+git show HEAD~1 --name-status
 ```
 
 #### To see the content itself - not the `diff`
@@ -273,11 +287,3 @@ To change this behavior, you can also specify the environment (commit) from whic
 ```bash
 git restore --source=HEAD~1 file1.txt
 ```
-
-
-
-
-
-888-550-4427
-
-924-801-7202
